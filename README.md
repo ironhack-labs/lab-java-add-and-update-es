@@ -63,9 +63,15 @@ Cree las rutas a continuación de la manera más eficiente posible usando la val
 6. **Escribir una respuesta corta en README.md**. En su `README.md` escriba una respuesta corta a las siguientes preguntas:
 
    - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?
+   - no,se usaron rutas Put separadas para cada tipo de actualizaciones especifica.
    - ¿Por qué eligió la estrategia que eligió?
+   - elegi esta estrategia para mantener una sepación clara de responsabilidades y facilitar el mantenimiento del código.
    - ¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?
+   - Ventajas: claridad y facilidad de mantenimiento.
+   - Desventajas:maypr cantidad de codigo y rutas.
    - ¿Cuáles son los compromisos entre `PUT` y `PATCH`?
+   - Put: se usa para reemplazos completos y asegura que se envian todos los del recurso.
+   - Patch: permite actualizaciones parciales ,lo que puede ser más eficiente pero puede requerir más lógica en el servidor para manejas las actulizaciones parciales.
 
 <br>
 
