@@ -1,6 +1,39 @@
 
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
+UPDATED README
+
+# Hospital API
+
+## Questions
+
+### 1. Did you use the same type of route to update patient information and to update an employee's department?
+
+No, I used PATCH for both routes. However, the structure and purpose of the data being updated are different. In the case of the patient, PATCH allows updating any field of the patient, while for the employee's department, PATCH is used specifically for a single field.
+
+### 2. Why did you choose the strategy you chose?
+
+I chose to use PATCH for partial updates because it is more efficient and flexible for updating one or more fields without needing to send the entire object.
+
+### 3. What are the advantages and disadvantages of the strategies you chose to create these routes?
+
+#### Advantages
+- **Flexibility**: PATCH allows for partial updates to resources, which can be more efficient and specific.
+- **Simplicity**: It is simpler for the client to send only the fields that need to be updated.
+
+#### Disadvantages
+- **Validation**: It can be more complex to validate partial updates and ensure the resource's state remains valid.
+- **HTTP Semantics**: Some may argue that PATCH is not as clearly defined and standardized as PUT.
+
+### 4. What are the trade-offs between PUT and PATCH?
+
+- **PUT**: Used for complete updates of a resource. Requires the client to send a full representation of the resource, which can be inefficient if only a few fields need updating.
+- **PATCH**: Used for partial updates of a resource. It is more efficient in terms of network and processing but can be more complex in terms of validation and handling partial data.
+
+---
+
+
+
 # LAB | Java Add and Update (Añadir y Actualizar)
 
 ## Introducción
