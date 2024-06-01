@@ -63,9 +63,40 @@ Cree las rutas a continuación de la manera más eficiente posible usando la val
 6. **Escribir una respuesta corta en README.md**. En su `README.md` escriba una respuesta corta a las siguientes preguntas:
 
    - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?
+     No,utilice PATCH para actualizar la información del paciente y PUT para actualizar el departamento del empleado.
    - ¿Por qué eligió la estrategia que eligió?
+     PATCH para actualizar la información del paciente porque permite la actualización parcial del paciente,
+   y PUT para actualizar el departamento del empleado sin opcion a que se rompa la cadena empleado, 
+   ya que solo es un atributo lo que cambiamos
    - ¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?
+Ventajas de usar PATCH:
+
+      -Permite la actualización parcial de un recurso.
+      -Reduce la cantidad de datos que el cliente necesita enviar.
+      -Evita la actualización innecesaria de campos.
+   
+Inconvenientes de usar PATCH:
+
+       -La especificación PATCH no está tan bien definida como la especificación PUT. 
+       -Algunos clientes pueden no admitir PATCH.
+
+Ventajas de usar PUT:
+
+       -Es una operación idempotente.
+       -Es fácil de entender y usar.
+
+Inconvenientes de usar PUT:
+
+       -Requiere que el cliente envíe toda la información del empleado, incluso si solo se está cambiando un campo.
+       -No permite la actualización parcial de un recurso.
+
    - ¿Cuáles son los compromisos entre `PUT` y `PATCH`?
+     PUT y PATCH son dos métodos HTTP que se utilizan para actualizar recursos. La elección de qué método utilizar depende de la operación específica que se esté realizando.
+
+   PUT se debe utilizar cuando se desea reemplazar todo el recurso con un nuevo conjunto de datos.
+PATCH se debe utilizar cuando se desea actualizar parcialmente un recurso.
+En general, PATCH es una opción más flexible que PUT, ya que permite la actualización parcial de recursos. 
+Sin embargo, la decisión final de qué método utilizar debe basarse en las necesidades específicas de la aplicación.
 
 <br>
 
