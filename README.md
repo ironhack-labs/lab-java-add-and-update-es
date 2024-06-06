@@ -62,11 +62,19 @@ Cree las rutas a continuación de la manera más eficiente posible usando la val
 5. **Actualizar la información del paciente**: Crea una ruta para actualizar la información del paciente (el usuario debería poder actualizar cualquier información del paciente a través de esta ruta).
 6. **Escribir una respuesta corta en README.md**. En su `README.md` escriba una respuesta corta a las siguientes preguntas:
 
-   - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?
-   - ¿Por qué eligió la estrategia que eligió?
-   - ¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?
-   - ¿Cuáles son los compromisos entre `PUT` y `PATCH`?
-
+   - **¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?**
+   
+Podría haber usado para ambas el método update (PUT), ya que dicho método permite cambiar todos, uno o incluso ninguno de los parámetros de cada clase, pero en mi caso cree un método aparte para cambiar solo el departamento (PATCH), asi como uno específico para cambiar el estado del doctor.
+   - **¿Por qué eligió la estrategia que eligió?**
+   
+Creo que el código es más claro y los métodos más legibles si los pongo por separado que todo junto.
+- **¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?**
+     
+Evidentemente, un solo método es menos trabajoso que usar métodos diferentes en cuanto a picar código se refiere, pero no es menos cierto que al usar patch solo enviamos y cambiamos los campos escogidos y no reemplazamos la entidad completa enviando todos los campos(aunque al final solo se modifique uno), lo cual es mucho menos eficiente.
+- **¿Cuáles son los compromisos entre `PUT` y `PATCH`?**
+     
+Usaremos PUT cuando necesitamos cambiar la entidad completa o la mayoría de sus campos y usaremos PATCH cuando solo necesitemos cambiar un campo o pocos, ya que es más eficiente que mandar el recurso completo.
+PATCH también es más flexible y más eficiente mientras que PUT es más simple y más consistente. Elegiremos uno u otro dependiendo de nuestras necesidades en cada momento.
 <br>
 
 ## FAQs (Preguntas frecuentes)
