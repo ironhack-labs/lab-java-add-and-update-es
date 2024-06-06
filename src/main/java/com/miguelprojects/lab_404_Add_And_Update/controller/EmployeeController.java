@@ -5,6 +5,7 @@ import com.miguelprojects.lab_404_Add_And_Update.Enums.Status;
 import com.miguelprojects.lab_404_Add_And_Update.Service.EmployeeService;
 import com.miguelprojects.lab_404_Add_And_Update.model.Employee;
 import com.miguelprojects.lab_404_Add_And_Update.repository.EmployeeRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +58,7 @@ public class EmployeeController {
         return employeeRepository.save(employee);
     }
 
-    // Actualizar la información del paciente:
+    // Actualizar la información del doctor:
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateEmployee(@PathVariable(name = "id") Long employeeId, @RequestBody EmployeeDTO employeeDTO) {
@@ -65,17 +66,23 @@ public class EmployeeController {
     }
 
     // Cambiar el estado del doctor
-    @PutMapping("/status")
+    @PatchMapping("/status")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void changeStatus(@RequestParam(name = "id") Long idEmployee, @RequestParam Status status) {
         employeeService.changeStatus(idEmployee, status);
     }
 
     // Cambiar el departamento del doctor
-    @PutMapping("/department")
+    @PatchMapping("/department")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void changeDepartment(@RequestParam(name = "id") Long idEmployee, @RequestParam String department) {
         employeeService.changeDepartment(idEmployee, department);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteEmployee(@PathVariable Long id) {
+        employeeService.deleteEmployee(id);
     }
 
 }

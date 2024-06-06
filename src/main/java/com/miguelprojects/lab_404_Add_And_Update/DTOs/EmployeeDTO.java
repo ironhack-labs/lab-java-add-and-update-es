@@ -28,6 +28,12 @@ public class EmployeeDTO {
         this.status = status;
     }
 
+    public EmployeeDTO(String department, String name, Status status) {
+        this.department = department;
+        this.name = name;
+        this.status = status;
+    }
+
     public Long getEmployeeId() {
         return employeeId;
     }

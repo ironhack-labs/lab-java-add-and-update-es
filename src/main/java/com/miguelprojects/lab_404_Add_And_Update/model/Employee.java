@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.miguelprojects.lab_404_Add_And_Update.Enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.List;
@@ -16,7 +18,6 @@ import java.util.Objects;
 public class Employee {
     @Id
     @Column(name="employee_id")
-    @NotBlank
     private Long employeeId;
 
     @NotBlank(message = "Department is mandatory")
@@ -25,7 +26,7 @@ public class Employee {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotBlank(message = "Status is mandatory")
+    @NotNull(message = "Status is mandatory")
     @Enumerated(EnumType.STRING)
     private Status status;
 

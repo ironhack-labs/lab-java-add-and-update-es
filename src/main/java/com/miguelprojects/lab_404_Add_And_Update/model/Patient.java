@@ -4,6 +4,7 @@ package com.miguelprojects.lab_404_Add_And_Update.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -22,7 +23,7 @@ public class Patient {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotBlank(message = "Date of birth is mandatory")
+    @NotNull(message = "Date of birth is mandatory")
     @Past(message = "Date of birth must be in the past")
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;

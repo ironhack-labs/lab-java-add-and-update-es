@@ -28,9 +28,9 @@ public class EmployeeService {
         Employee employee = employeeRepository.findById(idEmployee).
                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found"));
 
-        if (employeeDTO.getEmployeeId() != null) {
-            employee.setEmployeeId(employeeDTO.getEmployeeId());
-        }
+//        if (employeeDTO.getEmployeeId() != null) {
+//            employee.setEmployeeId(employeeDTO.getEmployeeId());
+//        }
         if (employeeDTO.getDepartment() != null) {
             employee.setDepartment(employeeDTO.getDepartment());
         }
@@ -55,6 +55,7 @@ public class EmployeeService {
                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee " + idEmployee +" not found"));
 
         doctor.setStatus(status);
+        employeeRepository.save(doctor);
     }
 
     // Actualizar el departamento del doctor
@@ -63,5 +64,6 @@ public class EmployeeService {
                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee " + idEmployee +" not found"));
 
         doctor.setDepartment(department);
+        employeeRepository.save(doctor);
     }
 }

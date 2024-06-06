@@ -1,8 +1,10 @@
 package com.miguelprojects.lab_404_Add_And_Update.controller;
 
+import com.miguelprojects.lab_404_Add_And_Update.DTOs.PatientDTO;
 import com.miguelprojects.lab_404_Add_And_Update.Service.PatientService;
 import com.miguelprojects.lab_404_Add_And_Update.model.Patient;
 import com.miguelprojects.lab_404_Add_And_Update.repository.PatientRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +69,18 @@ public class PatientController {
         return patientRepository.save(patient);
     }
 
+    // Actualizar la información del paciente
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updatePatient(@PathVariable(name = "id") Long idPatient, @Valid @RequestBody PatientDTO patientDTO) {
+        patientService.updatePatient(idPatient, patientDTO);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deletePatient(@PathVariable(name = "id") Long idPatient) {
+        patientService.deletePatient(idPatient);
+    }
 
 }
 
