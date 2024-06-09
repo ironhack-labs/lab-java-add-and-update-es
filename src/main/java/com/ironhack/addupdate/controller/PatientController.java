@@ -24,8 +24,8 @@ public class PatientController {
     }
 
     @PutMapping("/{id}")
-    public Patient updatePatient(@PathVariable Long id, @RequestBody Patient patientDetails) {
-    Patient patient = patientRepository.findById(id).orElseThrow();
+    public Patient updatePatient(@PathVariable Long patientId, @RequestBody Patient patientDetails) {
+    Patient patient = patientRepository.findById(patientId).orElseThrow();
         patient.setName(patientDetails.getName());
         patient.setDateOfBirth(patientDetails.getDateOfBirth());
         patient.setAdmittedBy(patientDetails.getAdmittedBy());

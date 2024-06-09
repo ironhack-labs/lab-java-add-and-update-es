@@ -28,15 +28,15 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}/status")
-    public Employee updateStatus(@PathVariable Long id, @RequestParam String status) {
-        Employee employee = employeeRepository.findById(id).orElseThrow();
+    public Employee updateStatus(@PathVariable Long employeeId, @RequestParam String status) {
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow();
         employee.setDepartment(status);
         return employeeRepository.save(employee);
     }
 
     @PutMapping("/{id}/department")
-    public Employee updateDepartment(@PathVariable Long id, @RequestParam String department) {
-        Employee employee = employeeRepository.findById(id).orElseThrow();
+    public Employee updateDepartment(@PathVariable Long employeeId, @RequestParam String department) {
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow();
         employee.setDepartment(department);
         return employeeRepository.save(employee);
     }
