@@ -2,6 +2,7 @@ package com.ironhack.lab404.controller;
 
 
 import com.ironhack.lab404.dtos.PatientRequest;
+import com.ironhack.lab404.dtos.PatientUpdateRequest;
 import com.ironhack.lab404.model.Patient;
 import com.ironhack.lab404.service.PatientService;
 import jakarta.validation.Valid;
@@ -58,4 +59,14 @@ public class PatientController {
     public Patient createPatient(@Valid @RequestBody PatientRequest patientRequest){
         return patientService.createPatient(patientRequest);
     }
+
+    // 5. Actualizar la información del paciente
+    @PutMapping("/{patientId}/updatePatient")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updatePatient (@PathVariable Integer patientId,
+                               @RequestBody PatientUpdateRequest patientUpdateRequest){
+        patientService.updatePatient(patientId, patientUpdateRequest);
+
+    }
+
 }

@@ -2,6 +2,7 @@ package com.ironhack.lab404.service;
 
 
 import com.ironhack.lab404.dtos.PatientRequest;
+import com.ironhack.lab404.dtos.PatientUpdateRequest;
 import com.ironhack.lab404.model.Employee;
 import com.ironhack.lab404.model.Patient;
 import com.ironhack.lab404.repository.EmployeeRepository;
@@ -71,4 +72,23 @@ public class PatientService {
         return patientRepository.save(newPatient);
     }
 
+    // 5. Actualizar la información del paciente
+    public void updatePatient(Integer patientId, PatientUpdateRequest patientUpdateRequest) {
+        Patient foundPatient = patientRepository.findByPatientId(patientId);
+
+        if(patientUpdateRequest.getPatientName() != null){
+            foundPatient.setPatientName(patientUpdateRequest.getPatientName());
+        }
+        if(patientUpdateRequest.getDateOfBirth() != null){
+            foundPatient.setDateOfBirth(patientUpdateRequest.getDateOfBirth());
+        }
+        if(patientUpdateRequest.getAdmittedBy() != null){
+            Employee admittedBy = employeeRepository.findByEmployeeId(patientUpdateRequest.getAdmittedBy());
+            if ( admittedBy != null){
+                foundPatient.setAdmittedBy(admittedBy);
+            }
+        }
+
+        patientRepository.save(foundPatient);
+    }
 }

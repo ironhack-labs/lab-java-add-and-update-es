@@ -16,4 +16,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
     List<Patient> findByDateOfBirthBetween(LocalDate startDate, LocalDate endDate);
 
+    Patient findByPatientId(Integer patientId);
+
+
 }

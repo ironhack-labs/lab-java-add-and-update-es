@@ -60,6 +60,17 @@ PUT http://localhost:8080/employees/654321/updateEmployee
 ```
 
 5. **Actualizar la información del paciente**: Crea una ruta para actualizar la información del paciente (el usuario debería poder actualizar cualquier información del paciente a través de esta ruta).
+
+PUT http://localhost:8080/patients/1/updatePatient
+
+```
+{
+    "patientName": "Lorena Castellet",
+    "dateOfBirth": "2000-07-26",
+    "admittedBy": 156545
+}
+```
+
 6. **Escribir una respuesta corta en README.md**. En su `README.md` escriba una respuesta corta a las siguientes preguntas:
 
    - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?
