@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "employees")
@@ -74,5 +75,18 @@ public class Employee {
 
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(getEmployeeId(), employee.getEmployeeId()) && Objects.equals(getDepartment(), employee.getDepartment()) && Objects.equals(getEmployeeName(), employee.getEmployeeName()) && Objects.equals(getStatus(), employee.getStatus()) && Objects.equals(getPatients(), employee.getPatients());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEmployeeId(), getDepartment(), getEmployeeName(), getStatus(), getPatients());
     }
 }

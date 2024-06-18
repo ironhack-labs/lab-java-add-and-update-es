@@ -2,6 +2,7 @@ package com.ironhack.lab404.service;
 
 
 import com.ironhack.lab404.dtos.EmployeeRequest;
+import com.ironhack.lab404.dtos.EmployeeUpdateRequest;
 import com.ironhack.lab404.model.Employee;
 import com.ironhack.lab404.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,23 @@ public class EmployeeService {
         newEmployee.setStatus(receivedEmployee.getStatus());
 
         return employeeRepository.save(newEmployee);
+    }
+
+    // 3. Cambiar el estado del doctor
+    public void updateEmployee(Integer employeeId, EmployeeUpdateRequest employeeUpdateRequest){
+        Employee foundEmployee = employeeRepository.findByEmployeeId(employeeId);
+
+        if( employeeUpdateRequest.getDepartment() != null){
+            foundEmployee.setDepartment(employeeUpdateRequest.getDepartment());
+        }
+        if( employeeUpdateRequest.getEmployeeName() != null){
+            foundEmployee.setEmployeeName(employeeUpdateRequest.getEmployeeName());
+        }
+        if( employeeUpdateRequest.getStatus() != null){
+            foundEmployee.setStatus(employeeUpdateRequest.getStatus());
+        }
+
+        employeeRepository.save(foundEmployee);
     }
 
 

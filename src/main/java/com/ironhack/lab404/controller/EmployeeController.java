@@ -2,11 +2,13 @@ package com.ironhack.lab404.controller;
 
 
 import com.ironhack.lab404.dtos.EmployeeRequest;
+import com.ironhack.lab404.dtos.EmployeeUpdateRequest;
 import com.ironhack.lab404.model.Employee;
 import com.ironhack.lab404.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,10 +26,10 @@ public class EmployeeController {
         return employeeService.getEmployees();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/id/{employeeId}")
     @ResponseStatus(HttpStatus.OK)
-    public Employee getEmployeeById(@PathVariable Integer id){
-        return employeeService.getEmployeeById(id);
+    public Employee getEmployeeById(@PathVariable Integer employeeId){
+        return employeeService.getEmployeeById(employeeId);
     }
 
     @GetMapping("/status/{status}")
@@ -48,4 +50,14 @@ public class EmployeeController {
     public Employee createEmployee(@Valid @RequestBody EmployeeRequest employeeRequest){
         return employeeService.createEmployee(employeeRequest);
     }
+
+    // 3. Cambiar el estado del doctor
+    @PutMapping("{employeeId}/updateEmployee")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateEmployee(@PathVariable Integer employeeId,
+                               @RequestBody EmployeeUpdateRequest employeeUpdateRequest){
+        employeeService.updateEmployee(employeeId, employeeUpdateRequest);
+    }
+
+
 }
