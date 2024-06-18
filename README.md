@@ -73,10 +73,17 @@ PUT http://localhost:8080/patients/1/updatePatient
 
 6. **Escribir una respuesta corta en README.md**. En su `README.md` escriba una respuesta corta a las siguientes preguntas:
 
-   - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?
-   - ¿Por qué eligió la estrategia que eligió?
-   - ¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?
-   - ¿Cuáles son los compromisos entre `PUT` y `PATCH`?
+   - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados? 
+   - Sí.
+
+   - ¿Por qué eligió la estrategia que eligió? 
+   - Creé un método que sirve para cambiar todos los atributos del paciente y de los empleados (menos el de id) lo que optimiza el código en vez de uno para cada atributo.
+   
+  - ¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?
+  - La ventaja es que con un método, puedo cambiar todo. La desventaja es que se tarda más en hacer, y si no se pueden/deben cambiar esos atributos, sería innecesario.
+
+  - ¿Cuáles son los compromisos entre `PUT` y `PATCH`?
+  - PATCH es para un cambio específico mientras que PUT es para más de un cambio.
 
 <br>
 
