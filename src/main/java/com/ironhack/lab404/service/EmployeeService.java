@@ -48,6 +48,7 @@ public class EmployeeService {
     }
 
     // 3. Cambiar el estado del doctor
+    // 4. Actualizar el departamento del doctor
     public void updateEmployee(Integer employeeId, EmployeeUpdateRequest employeeUpdateRequest){
         Employee foundEmployee = employeeRepository.findByEmployeeId(employeeId);
 

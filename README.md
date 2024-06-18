@@ -50,6 +50,15 @@ PUT http://localhost:8080/employees/654321/updateEmployee
 ```
 
 4. **Actualizar el departamento del doctor**: Crea una ruta para actualizar el departamento de un doctor.
+
+PUT http://localhost:8080/employees/654321/updateEmployee
+
+```JSON: 
+{
+"department": "immunology"
+}
+```
+
 5. **Actualizar la información del paciente**: Crea una ruta para actualizar la información del paciente (el usuario debería poder actualizar cualquier información del paciente a través de esta ruta).
 6. **Escribir una respuesta corta en README.md**. En su `README.md` escriba una respuesta corta a las siguientes preguntas:
 

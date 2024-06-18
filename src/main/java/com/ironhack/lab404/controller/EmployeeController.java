@@ -52,6 +52,7 @@ public class EmployeeController {
     }
 
     // 3. Cambiar el estado del doctor
+    // 4. Actualizar el departamento del doctor
     @PutMapping("{employeeId}/updateEmployee")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateEmployee(@PathVariable Integer employeeId,
