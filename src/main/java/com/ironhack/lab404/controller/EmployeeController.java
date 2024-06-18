@@ -1,8 +1,10 @@
 package com.ironhack.lab404.controller;
 
 
+import com.ironhack.lab404.dtos.EmployeeRequest;
 import com.ironhack.lab404.model.Employee;
 import com.ironhack.lab404.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +40,12 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.OK)
     public List<Employee> getByDepartment(@PathVariable String department){
         return employeeService.getByDepartment(department);
+    }
+
+    // 2. Añadir un nuevo doctor
+    @PostMapping("/newEmployee")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Employee createEmployee(@Valid @RequestBody EmployeeRequest employeeRequest){
+        return employeeService.createEmployee(employeeRequest);
     }
 }

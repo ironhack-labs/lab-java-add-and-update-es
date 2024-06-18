@@ -1,6 +1,7 @@
 package com.ironhack.lab404.service;
 
 
+import com.ironhack.lab404.dtos.EmployeeRequest;
 import com.ironhack.lab404.model.Employee;
 import com.ironhack.lab404.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +17,36 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    // 1. Obtener todos los médicos
     public List<Employee> getEmployees() {
         return employeeRepository.findAll();
     }
 
-    // 2. Obtener médico por ID
     public Employee getEmployeeById(Integer id){
         return employeeRepository.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "EmployeeRequest not found."));
     }
 
-    // 3. Obtener médicos por estado (status)
     public List<Employee> getByStatus (String status){
         return employeeRepository.findByStatus(status);
     }
 
-    // 4. Obtener médicos por departamento
     public List<Employee> getByDepartment (String department){
         return employeeRepository.findByDepartment(department);
     }
+
+    // 2. Añadir un nuevo doctor
+    public Employee createEmployee(EmployeeRequest receivedEmployee){
+
+        Employee newEmployee = new Employee();
+        newEmployee.setEmployeeId(receivedEmployee.getEmployeeId());
+        newEmployee.setDepartment(receivedEmployee.getDepartment());
+        newEmployee.setEmployeeName(receivedEmployee.getEmployeeName());
+        newEmployee.setStatus(receivedEmployee.getStatus());
+
+        return employeeRepository.save(newEmployee);
+    }
+
+
 
 }
 
