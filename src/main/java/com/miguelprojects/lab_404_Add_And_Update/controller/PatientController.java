@@ -66,7 +66,8 @@ public class PatientController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Patient createPatient(@RequestBody Patient patient) {
-        return patientRepository.save(patient);
+        return patientService.createPatient(patient);
+        //return patientRepository.save(patient);
     }
 
     // Actualizar la información del paciente
