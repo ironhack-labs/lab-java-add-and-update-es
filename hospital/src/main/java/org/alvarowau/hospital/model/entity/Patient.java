@@ -23,6 +23,6 @@ public class Patient {
     private LocalDate birthDate;
 
     @ManyToOne
-    @JoinColumn(name = "admitted_by", referencedColumnName = "employee_id")  // Cambio aquí
+    @JoinColumn(name = "admitted_by", referencedColumnName = "employee_id")
     private Employee admittedBy;
 }

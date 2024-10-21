@@ -19,6 +19,8 @@ public class Employee {
     private Long id;
     private String department;
     private String name;
+    @Enumerated(EnumType.STRING) // Para almacenar el valor de la enumeración como String en la base de datos
+    @Column(name = "status")
     private StatusEmployee status;
 
     @OneToMany(mappedBy = "admittedBy", cascade = CascadeType.ALL)
