@@ -73,6 +73,17 @@ Cree las rutas a continuación de la manera más eficiente posible usando la val
 
 <br>
 
+## Respuestas cortas
+
+   - ¿Usó el mismo tipo de ruta para actualizar la información del paciente y para actualizar un departamento de empleados?
+   No, el enunciado no específica qué atributo del paciente quiere que se pueda actualizar, por lo tanto, he actualizado el paciente entero si es que recibia atributos distintos a los que ya tenía. Esto mediante validaciones.
+   - ¿Por qué eligió la estrategia que eligió?
+   Comprendí de esa forma el enunciado, y una vez implementado pasé a actualizarlo como el departamento de empleados, mediante la utilización de patchs.
+   - ¿Cuáles son las ventajas e inconvenientes de las estrategias que eligió para crear estas rutas?
+   Solo para actualización de un paciente sin atributos que actualizar especificos veo desventajas ya que es ineficiente teniedo la posibilidad de realizar una actualización específica mediante un Patch. Ventajas, las solución propuesta es totalmente  funcional.
+   - ¿Cuáles son los compromisos entre `PUT` y `PATCH`?
+   La consistencia de datos, el uso de dtos y validaciones.
+
 ## FAQs (Preguntas frecuentes)
 
 <br>
